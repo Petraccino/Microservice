@@ -10,4 +10,8 @@ class FacebookServiceApplicationTests {
 	void contextLoads() {
 	}
 
+	public void m(){
+		System.out.println("fff");
+	}
+
 }
