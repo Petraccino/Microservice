@@ -1,0 +1,9 @@
+package com.sistemi.informativi.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import io.bootify.my_app.domain.PostFacebook;
+
+
+public interface PostFacebookRepository extends JpaRepository<PostFacebook, Integer> {
+}

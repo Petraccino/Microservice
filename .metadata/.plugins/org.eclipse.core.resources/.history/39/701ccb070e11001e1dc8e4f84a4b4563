@@ -1,0 +1,14 @@
+package com.sistemi.informativi.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class PostFaceServiceImpl implements PostFaceService{
+	
+
+	public PostFacebook findPostFacebookById(Integer id) throws Exception;
+	public List<PostFacebook> findPostsFacebook()throws Exception;
+	public PostFacebook addOrUpdatePostFacebook(PostFacebook postFacebook)throws Exception;
+	public Map<String, Boolean> deleteById(Integer id) throws Exception;
+
+}

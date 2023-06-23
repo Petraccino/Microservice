@@ -1,0 +1,11 @@
+package com.sistemi.informativi.service;
+
+import java.util.List;
+
+import com.sistemi.informativi.entity.Tweet;
+
+public interface TweetService {
+	public Tweet findTweetById(Integer id);
+	public List<Tweet> findTweet();
+	
+}

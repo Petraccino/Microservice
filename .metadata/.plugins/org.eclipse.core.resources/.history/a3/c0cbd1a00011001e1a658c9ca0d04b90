@@ -1,0 +1,19 @@
+package com.sistemi.informativi.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sistemi.informativi.entity.Tweet;
+import com.sistemi.informativi.service.TweetService;
+
+@RestController
+public class TweetController {
+	
+	@Autowired
+	TweetService service;
+	
+	public Tweet findTweetById(Integer id) throws Exception{
+		service.findTweetById(id);
+	}
+
+}

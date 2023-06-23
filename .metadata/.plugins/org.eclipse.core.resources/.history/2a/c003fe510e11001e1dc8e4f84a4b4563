@@ -1,0 +1,50 @@
+package com.sistemi.informativi.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sistemi.informativi.entity.PostFacebook;
+import com.sistemi.informativi.repository.PostFacebookRepository;
+
+@Service
+public class PostFaceServiceImpl implements PostFaceService{
+	
+	@Autowired
+	private PostFacebookRepository facebookRepository;
+
+	@Override
+	public PostFacebook findPostFacebookById(Integer id) throws Exception {
+		
+		PostFacebook postFacebook = facebookRepository.findById(id).orElseThrow(()-> new Exception("Not found post Facebook"));
+		return postFacebook;
+	}
+
+	@Override
+	public List<PostFacebook> findPostsFacebook() throws Exception {
+		
+		List<PostFacebook> postFacebook = facebookRepository.findAll();
+		if(postFacebook.isEmpty()) {
+			throw new Exception("The list of posts Facebook is empty");
+		} else {
+			return postFacebook;
+		}
+	}
+
+	@Override
+	public PostFacebook addOrUpdatePostFacebook(PostFacebook postFacebook) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Boolean> deleteById(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	
+}

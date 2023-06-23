@@ -1,0 +1,35 @@
+package com.sistemi.informativi.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sistemi.informativi.entity.Tweet;
+import com.sistemi.informativi.service.TweetService;
+
+@RestController
+public class TweetController {
+	
+	@Autowired
+	TweetService service;
+	@GetMapping("/tweets/id/{id}")
+	public Tweet findTweetById( Integer id) throws Exception{
+		Tweet tweet = service.findTweetById(id);
+		return tweet; 
+	}
+	@GetMapping("/tweets")
+	public List<Tweet> findTweet()throws Exception{
+		List<Tweet>tweets = service.findTweets();
+		return tweets;
+	}
+	@PostMapping("/tweets")
+	public Tweet addOrUpdateTweet(Tweet tweet)throws Exception{
+		
+	}
+	
+	
+
+}

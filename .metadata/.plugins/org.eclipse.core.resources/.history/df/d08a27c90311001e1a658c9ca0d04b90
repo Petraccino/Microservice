@@ -1,0 +1,47 @@
+package com.sistemi.informativi.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sistemi.informativi.entity.PostInstagram;
+import com.sistemi.informativi.entity.Tweet;
+import com.sistemi.informativi.repository.PostInstagramRepository;
+
+@Service
+public class PostInstagramServiceImpl implements PostInstagramService{
+	
+	@Autowired
+	private PostInstagramRepository instagramRepository;
+
+	@Override
+	public PostInstagram findPostInstagramById(Integer id) throws Exception {
+		PostInstagram postInstagram = instagramRepository.findPostInstagramById(id).orElseThrow(()-> new Exception("Not found Tweet"));
+		return postInstagram;
+	}
+
+	@Override
+	public List<PostInstagram> findPostsInstagram() throws Exception {
+		List<PostInstagram> postsInstagram = instagramService.();
+		if(postsInstagram.isEmpty()) {
+			throw new Exception("The list of post Instagram is empty");
+		} else {
+			return postsInstagram;
+		}
+	}
+
+	@Override
+	public PostInstagram addOrUpdatePostInstagram(PostInstagram postInstagram) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Boolean> deleteById(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,37 @@
+package com.sistemi.informativi.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import com.sistemi.informativi.entity.Tweet;
+
+@Service
+public class TweetServiceImpl implements TweetService{
+
+	@Override
+	public Tweet findTweetById(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Tweet> findTweet() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Tweet addOrUpdateTweet(Tweet tweet) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Map<String, Boolean> deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

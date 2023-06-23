@@ -1,0 +1,55 @@
+package com.sistemi.informativi.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sistemi.informativi.entity.PostFacebook;
+import com.sistemi.informativi.repository.PostFacebookRepository;
+
+public class PostFacebookServiceImpl implements PostFacebookService{
+	@Autowired
+	PostFacebookRepository facebookRepository;
+	@Override
+	public PostFacebook findPostFacebookById(Integer id) throws Exception {
+		PostFacebook postInstagram = facebookRepository.findById(id).orElseThrow(()-> new Exception("Not found post Facebook"));
+		return postInstagram;
+	}
+
+	@Override
+	public List<PostFacebook> findPostsFacebook() throws Exception {
+		List<PostFacebook> postsInstagram = facebookRepository.findAll();
+		if(postsInstagram.isEmpty()) {
+			throw new Exception("The list of post Facebook is empty");
+		} else {
+			return postsInstagram;
+		}
+	}
+
+	@Override
+	public PostFacebook addOrUpdatePostFacebook(PostFacebook postFacebook) throws Exception {
+		PostFacebook postInstagramAddOrUpdate = facebookRepository.save(postFacebook);
+		if (!postInstagramAddOrUpdate.getMessage().equals(postFacebook.getMessage())) {
+			throw new Exception("Insert or update for post Facebook failed");
+		} else {
+			return postInstagramAddOrUpdate;
+		}
+	}
+
+	@Override
+	public Map<String, Boolean> deleteById(Integer id) throws Exception {
+		Map<String, Boolean> map = new HashMap<String,Boolean>();
+		PostFacebook postInstagram = findPostFacebookById(id);
+		try {
+			facebookRepository.deleteById(id);
+			map.put("Deletion: "+postInstagram.getMessage(), Boolean.TRUE);
+		} catch(IllegalArgumentException iae) {
+			map.put("Deletion", Boolean.FALSE);
+			iae.printStackTrace();
+		}
+		return map;
+	}
+
+}

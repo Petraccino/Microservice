@@ -1,0 +1,6 @@
+package com.sistemi.informativi.service;
+
+public interface TweetService {
+	
+
+}
